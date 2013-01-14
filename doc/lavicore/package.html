@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>lavicore - lavicore</title>
+          <meta name="description" content="lavicore - lavicore" />
+          <meta name="keywords" content="lavicore lavicore" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../index.html';
+            var hash = 'lavicore.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../lib/package_big.png" />
+        
+        <h1>lavicore</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lavicore</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Lavi is a library for Longitudinal Analysis of VIrtual communities</p><p>Longitudinal analysis of social network dynamics is a field in its infancy.
+This library was born out of a personal need for doing research on software developer communities.
+While its design tries to be as general as possible, it is inevitably geared towards
+representing and analyzing e-mail group communities.</p><p>Before proceeding with this reference documentation,
+you are recommended to check out other documentation distibuted with Lavi,
+which describes dynamic social network analysis approach that shapes the Lavi software design.</p><p>Virtual communities are represented as directed, binary multi-graphs in Lavi.
+An instance of <a href="Community.html" class="extype" name="lavicore.Community">Community</a>  class both represents such a community, and provides
+utility methods for importing datasets. A community is internally represented by usings sets
+of <a href="Act.html" class="extype" name="lavicore.Act">Act</a>s and <a href="Actor.html" class="extype" name="lavicore.Actor">Actor</a>s. Instances of Community class can then be fed into
+one of the specializatios of <a href="Analyst.html" class="extype" name="lavicore.Analyst">Analyst</a> class which suits your needs. An analyst instance
+will take care of (1) dividing the longitudinal sequence of communication acts into a
+sequence of frames, and (2) reporting desired statistics about the frames, actors, and acts within
+each frame, preferably dumping them into a CSV file for further analysis to be done using
+a statistical tool of your choosing. Examples in relevant documentation is likely to be given
+using R statistics package.</p><p>An example session using scalac is as follows::</p><pre>$ ~/scala-XXX/bin/scalac -classpath lavi/build
+scala&gt; <span class="kw">import</span> lavicore.-;
+scala&gt; <span class="kw">val</span> comm=Community.importLax(<span class="lit">"./testdata/test1.lax"</span>)
+scala&gt; System.out.println(comm)
+scala&gt; <span class="kw">val</span> a=<span class="kw">new</span> AnalystSequenceFrame(comm)
+scala&gt; a.setup()
+scala&gt; a.run(fname=<span class="lit">"/tmp/out.csv"</span>)</pre><p>Lavi can optionally use graphstream library to visualize the communities::</p><pre>scala&gt; VisualizerGS.drawCommunity(comm)</pre></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="lavicore"><span>lavicore</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="lavicore.Act" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ActextendsObject"></a>
+      <a id="Act:Act"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Act.html"><span class="name">Act</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents a communication act within a community</p>
+    </li><li name="lavicore.Actor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ActorextendsObject"></a>
+      <a id="Actor:Actor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Actor.html"><span class="name">Actor</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents and actor.</p>
+    </li><li name="lavicore.Analyst" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnalystextendsObject"></a>
+      <a id="Analyst:Analyst"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Analyst.html"><span class="name">Analyst</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="lavicore.AnalystSequenceFrame" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnalystSequenceFrameextendsAnalyst"></a>
+      <a id="AnalystSequenceFrame:AnalystSequenceFrame"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AnalystSequenceFrame.html"><span class="name">AnalystSequenceFrame</span></a><span class="result"> extends <a href="Analyst.html" class="extype" name="lavicore.Analyst">Analyst</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Analyzes a community using frames containing a constant number of actions.</p>
+    </li><li name="lavicore.CSVWriter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CSVWriterextendsObject"></a>
+      <a id="CSVWriter:CSVWriter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CSVWriter.html"><span class="name">CSVWriter</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A class to ease writing out community statistics to CSV files for further analysis
+outside this software library.</p>
+    </li><li name="lavicore.Call" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CallextendsActwithProductwithSerializable"></a>
+      <a id="Call:Call"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Call.html"><span class="name">Call</span></a><span class="params">(<span name="icomm">icomm: <a href="Community.html" class="extype" name="lavicore.Community">Community</a></span>, <span name="iid">iid: <span class="extype" name="scala.Int">Int</span></span>, <span name="isrc">isrc: <span class="extype" name="scala.Int">Int</span></span>, <span name="itime">itime: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result"> extends <a href="Act.html" class="extype" name="lavicore.Act">Act</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents an act of calling out to the community.</p>
+    </li><li name="lavicore.Community" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CommunityextendsObject"></a>
+      <a id="Community:Community"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Community.html"><span class="name">Community</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents a community.</p>
+    </li><li name="lavicore.EgoNet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EgoNetextendsObject"></a>
+      <a id="EgoNet:EgoNet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="EgoNet.html"><span class="name">EgoNet</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents an ego network of an actor.</p>
+    </li><li name="lavicore.Reply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplyextendsActwithProductwithSerializable"></a>
+      <a id="Reply:Reply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Reply.html"><span class="name">Reply</span></a><span class="params">(<span name="icomm">icomm: <a href="Community.html" class="extype" name="lavicore.Community">Community</a></span>, <span name="iid">iid: <span class="extype" name="scala.Int">Int</span></span>, <span name="isrc">isrc: <span class="extype" name="scala.Int">Int</span></span>, <span name="ireference">ireference: <span class="extype" name="scala.Int">Int</span></span>, <span name="itime">itime: <span class="extype" name="scala.Double">Double</span></span>, <span name="idirected">idirected: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Boolean">Boolean</span>] = <span class="symbol">scala.None</span></span>, <span name="iweight">iweight: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Float">Float</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="Act.html" class="extype" name="lavicore.Act">Act</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents an act of replying to a previous communication act (a Call or Reply).</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="lavicore.Community" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Community"></a>
+      <a id="Community:Community"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Community$.html"><span class="name">Community</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="lavicore.Debugger" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Debugger"></a>
+      <a id="Debugger:Debugger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Debugger$.html"><span class="name">Debugger</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">A Debugger object to inject debug messages.</p>
+    </li><li name="lavicore.LaviShell" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LaviShell"></a>
+      <a id="LaviShell:LaviShell"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LaviShell$.html"><span class="name">LaviShell</span></a><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="lavicore.VisualizerGS" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VisualizerGS"></a>
+      <a id="VisualizerGS:VisualizerGS"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VisualizerGS$.html"><span class="name">VisualizerGS</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Visualizer using graphstream library
+TODO: does not use timing yet
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
